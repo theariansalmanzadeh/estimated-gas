@@ -1,0 +1,428 @@
+[
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_matic", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  { "anonymous": false, "inputs": [], "name": "GotAllPrices", "type": "event" },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint24",
+        "name": "",
+        "type": "uint24"
+      }
+    ],
+    "name": "SetFeeDex",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "name": "SetNewAddress",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenIn", "type": "address" },
+      { "internalType": "address", "name": "tokenOut", "type": "address" },
+      { "internalType": "uint256", "name": "amountIn", "type": "uint256" },
+      { "internalType": "string", "name": "contractType", "type": "string" }
+    ],
+    "name": "UniswapV2Execute",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token0", "type": "address" },
+      { "internalType": "address", "name": "token1", "type": "address" },
+      { "internalType": "address", "name": "factoryAddress", "type": "address" }
+    ],
+    "name": "UniswapV2GetPoolPair",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenIn", "type": "address" },
+      { "internalType": "address", "name": "tokenOut", "type": "address" },
+      { "internalType": "uint256", "name": "amountIn", "type": "uint256" },
+      { "internalType": "uint24", "name": "fee", "type": "uint24" },
+      { "internalType": "bool", "name": "isCoin", "type": "bool" },
+      { "internalType": "string", "name": "contractType", "type": "string" }
+    ],
+    "name": "UniswapV3Execute",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newAdmin", "type": "address" }
+    ],
+    "name": "changeAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenMatic", "type": "address" }
+    ],
+    "name": "changeMaticToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "name", "type": "string" },
+      { "internalType": "string", "name": "dex", "type": "string" }
+    ],
+    "name": "checkDexName",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "dex", "type": "string" },
+      { "internalType": "string", "name": "contractType", "type": "string" }
+    ],
+    "name": "deletedexContractAddress",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "destroyContract",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "dex", "type": "string" },
+      { "internalType": "string", "name": "contractType", "type": "string" }
+    ],
+    "name": "dexToContractAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenIn", "type": "address" },
+      { "internalType": "address", "name": "tokenOut", "type": "address" },
+      { "internalType": "uint256", "name": "amountIn", "type": "uint256" },
+      { "internalType": "uint24", "name": "fee", "type": "uint24" },
+      { "internalType": "bool", "name": "isCoin", "type": "bool" },
+      { "internalType": "string", "name": "contractType", "type": "string" }
+    ],
+    "name": "executeSwap",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token0", "type": "address" },
+      { "internalType": "address", "name": "token1", "type": "address" },
+      { "internalType": "uint256", "name": "amountIn", "type": "uint256" }
+    ],
+    "name": "getAllPrices",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "pool", "type": "address" },
+          { "internalType": "uint256", "name": "price", "type": "uint256" },
+          {
+            "internalType": "int256",
+            "name": "decimalDifference",
+            "type": "int256"
+          },
+          { "internalType": "uint256", "name": "amonutIn", "type": "uint256" },
+          { "internalType": "uint24", "name": "dexFee", "type": "uint24" },
+          { "internalType": "bool", "name": "invert", "type": "bool" },
+          { "internalType": "string", "name": "dexVersion", "type": "string" }
+        ],
+        "internalType": "struct ItypeData.EndResult[]",
+        "name": "PriceRatios",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token", "type": "address" }
+    ],
+    "name": "getAllowance",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "decimal0", "type": "uint256" },
+      { "internalType": "uint256", "name": "decimal1", "type": "uint256" },
+      { "internalType": "bool", "name": "inverInputs", "type": "bool" }
+    ],
+    "name": "getDecimalDiffenrence",
+    "outputs": [{ "internalType": "int256", "name": "", "type": "int256" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token", "type": "address" }
+    ],
+    "name": "getDecimalToken",
+    "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token0", "type": "address" },
+      { "internalType": "address", "name": "token1", "type": "address" },
+      { "internalType": "uint256", "name": "amountIn", "type": "uint256" },
+      { "internalType": "string", "name": "dexName", "type": "string" },
+      { "internalType": "uint24", "name": "fee", "type": "uint24" }
+    ],
+    "name": "getPrice",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "pool", "type": "address" },
+          { "internalType": "uint256", "name": "price", "type": "uint256" },
+          {
+            "internalType": "int256",
+            "name": "decimalDifference",
+            "type": "int256"
+          },
+          { "internalType": "uint256", "name": "amonutIn", "type": "uint256" },
+          { "internalType": "uint24", "name": "dexFee", "type": "uint24" },
+          { "internalType": "bool", "name": "invert", "type": "bool" },
+          { "internalType": "string", "name": "dexVersion", "type": "string" }
+        ],
+        "internalType": "struct ItypeData.EndResult",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalDexList",
+    "outputs": [{ "internalType": "string[]", "name": "", "type": "string[]" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getTotalFeeList",
+    "outputs": [{ "internalType": "uint24[]", "name": "", "type": "uint24[]" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "amount", "type": "uint256" },
+      { "internalType": "bool", "name": "oneOrZero", "type": "bool" }
+    ],
+    "name": "maticToWmatic",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "tokenIn", "type": "address" },
+      { "internalType": "address", "name": "tokenOut", "type": "address" },
+      { "internalType": "uint256", "name": "amountIn", "type": "uint256" },
+      { "internalType": "string", "name": "contractType", "type": "string" }
+    ],
+    "name": "quickswapV3GetPrice",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "pool", "type": "address" },
+          { "internalType": "uint256", "name": "price", "type": "uint256" },
+          {
+            "internalType": "int256",
+            "name": "decimalDifference",
+            "type": "int256"
+          },
+          { "internalType": "uint256", "name": "amonutIn", "type": "uint256" },
+          { "internalType": "uint24", "name": "dexFee", "type": "uint24" },
+          { "internalType": "bool", "name": "invert", "type": "bool" },
+          { "internalType": "string", "name": "dexVersion", "type": "string" }
+        ],
+        "internalType": "struct ItypeData.EndResult",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "contractType", "type": "string" }
+    ],
+    "name": "removeFeeOfDex",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint24[]", "name": "fees", "type": "uint24[]" }
+    ],
+    "name": "setDexFeeList",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string[]", "name": "_dexsName", "type": "string[]" }
+    ],
+    "name": "setDexList",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "dexName", "type": "string" },
+      { "internalType": "string", "name": "symbol", "type": "string" },
+      {
+        "internalType": "address",
+        "name": "contractAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setDexSymbolContracts",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "contractType", "type": "string" },
+      { "internalType": "uint24", "name": "feeAmount", "type": "uint24" }
+    ],
+    "name": "setFeeOfDex",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token0", "type": "address" },
+      { "internalType": "address", "name": "token1", "type": "address" },
+      { "internalType": "uint256", "name": "amountIn", "type": "uint256" },
+      { "internalType": "string", "name": "contractType", "type": "string" }
+    ],
+    "name": "uniswapV2GetPrice",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "pool", "type": "address" },
+          { "internalType": "uint256", "name": "price", "type": "uint256" },
+          {
+            "internalType": "int256",
+            "name": "decimalDifference",
+            "type": "int256"
+          },
+          { "internalType": "uint256", "name": "amonutIn", "type": "uint256" },
+          { "internalType": "uint24", "name": "dexFee", "type": "uint24" },
+          { "internalType": "bool", "name": "invert", "type": "bool" },
+          { "internalType": "string", "name": "dexVersion", "type": "string" }
+        ],
+        "internalType": "struct ItypeData.EndResult",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token0", "type": "address" },
+      { "internalType": "address", "name": "token1", "type": "address" },
+      { "internalType": "uint256", "name": "amountIn", "type": "uint256" },
+      { "internalType": "string", "name": "contractType", "type": "string" },
+      { "internalType": "uint24", "name": "fee", "type": "uint24" }
+    ],
+    "name": "uniswapV3GetPrice",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "pool", "type": "address" },
+          { "internalType": "uint256", "name": "price", "type": "uint256" },
+          {
+            "internalType": "int256",
+            "name": "decimalDifference",
+            "type": "int256"
+          },
+          { "internalType": "uint256", "name": "amonutIn", "type": "uint256" },
+          { "internalType": "uint24", "name": "dexFee", "type": "uint24" },
+          { "internalType": "bool", "name": "invert", "type": "bool" },
+          { "internalType": "string", "name": "dexVersion", "type": "string" }
+        ],
+        "internalType": "struct ItypeData.EndResult",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "token0", "type": "address" },
+      { "internalType": "address", "name": "token1", "type": "address" },
+      { "internalType": "string", "name": "contractType", "type": "string" },
+      { "internalType": "uint24", "name": "fee", "type": "uint24" }
+    ],
+    "name": "uniswapV3GetSinglePool",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  { "stateMutability": "payable", "type": "receive" }
+]
