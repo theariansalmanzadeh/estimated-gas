@@ -30,17 +30,6 @@ function GasEsitmated(props) {
 
     const timeout = deadlinecalculator(30 * 60, provider2);
 
-    const tx2 = {
-      tokenIn: "0x0000000000000000000000000000000000001010",
-      tokenOut: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-      amountIn: ethers.utils.parseUnits("0.1", 18),
-      fee: 3000,
-      isCoin: true,
-      deadline: timeout,
-      amountOutMinimum: BigInt(0),
-      contractType: "UNISWAPV3",
-    };
-
     console.log(props.contract);
 
     const { chainId } = await provider.getNetwork();
