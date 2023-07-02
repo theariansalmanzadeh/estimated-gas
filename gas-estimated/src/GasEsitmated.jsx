@@ -6,11 +6,14 @@ function GasEsitmated(props) {
   const [metamask, setMetamask] = useState("");
 
   const gasCostHandler = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+  let provider;
+
+if(!!(window.ethereum));
+    { provider = new ethers.providers.Web3Provider(window.ethereum, "any");}
     const provider2 = new ethers.providers.JsonRpcProvider(
-      "https://polygon-mainnet.g.alchemy.com/v2/Jpm-v9XHblo3Tx8n0TjK38jl__xOuoi_"
+      import.meta.env.VITE_ALCHEMY_KEY
     );
-    console.log(provider2);
+    
     const fees = await provider.getFeeData();
     const feesAlchemy = await provider2.getFeeData();
     console.log(ethers.utils.formatEther(fees.maxFeePerGas));
@@ -82,8 +85,8 @@ function GasEsitmated(props) {
       </p>
       <div>
         <button onClick={gasCostHandler}>get fee</button>
-        {alchemyFee.length > 0 && <p>Alchemy : {alchemyFee}</p>}
-        {alchemyFee.length > 0 && <p>metamask : {metamask}</p>}
+        <p>Alchemy : {alchemyFee.length > 0 && <span>{alchemyFee}</span>}</p>
+        <p>metamask : {alchemyFee.length > 0 && <span>{metamask}</span>}</p>
       </div>
     </React.Fragment>
   );
